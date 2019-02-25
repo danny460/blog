@@ -1,5 +1,18 @@
 # JavaScript
 
+## What is the difference between `<script>`, `<script async>` and `<script defer>`? When to use what?
+
+> **Note:** DOM parsing will be paused when the script execution is happening.
+
+- `<script>`: HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
+- `<script async src=...>`: The script will be fetched in parallel to HTML parsing and **executed as soon as it is available** (potentially before HTML parsing completes). When there are multiple async scripts, the order of exectution is not guranteed (cuz ASAP). You can use `async` when the script is independent of any of other scripts on the page, for example: analytics.
+- `<script defer src=...>`: The scsript will be fetched in parallel to HTML and **executed when the page has finished parsing**. Deferred scripts are guranteed to execute in the order they appear in the document. Use `defer` when a script relies on fully-parsed DOM. There's not much difference compare to putting a normal `<script>` at the end of `<body>`.
+
+> **Note:** `async`/`defer` are ignored if the script tag has no `src` attribute.
+
+See:
+- [https://stackoverflow.com/questions/10808109/script-tag-async-defer](https://stackoverflow.com/questions/10808109/script-tag-async-defer)
+
 ## What is `Symbol` in javascript? And what would you use it for?
 Symbol value represents a unique identifier. Every symbol value returend from `Symbol()` is guranteed to be unique.
 ```js
@@ -17,8 +30,8 @@ console.log(id1 === id2) // false
 #### System symbol
 
 See:
+- [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
-[MDN web docs: Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
 # Trick Questions
 
