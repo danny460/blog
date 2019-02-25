@@ -1,4 +1,27 @@
 # JavaScript
+
+## What is `Symbol` in javascript? And what would you use it for?
+Symbol value represents a unique identifier. Every symbol value returend from `Symbol()` is guranteed to be unique.
+```js
+let id1 = Symbol('id');
+let id2 = Symbol('id');
+console.log(typeof id1) // "symbol"
+console.log(id1.toString()) // "Symbol(id)"
+console.log(id1 == id2) // false
+console.log(id1 === id2) // false
+``` 
+**Note**: the data type `symbol` is a **primitive data type**.
+
+### What to use it for?
+#### Hidden properties
+#### System symbol
+
+See:
+
+[MDN web docs: Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+
+# Trick Questions
+
 ## What is a potential pitfall with using `typeof bar === 'object'` to determine if bar 
 is an object?
 
