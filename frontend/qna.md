@@ -2,7 +2,7 @@
 
 ## What is the difference between `<script>`, `<script async>` and `<script defer>`? When to use what?
 
-> **Note:** DOM parsing will be paused when the script execution is happening.
+Before the browser can render a page, it has to build the DOM tree by parsing the HTML markup. Whenever the parser encounters a script it has to fetch and execute it before it can continue parsing the HTML. `async` and `defer` provide different behaviours:
 
 - `<script>`: HTML parsing is blocked, the script is fetched and executed immediately, HTML parsing resumes after the script is executed.
 - `<script async src=...>`: The script will be fetched in parallel to HTML parsing and **executed as soon as it is available** (potentially before HTML parsing completes). When there are multiple async scripts, the order of exectution is not guranteed (cuz ASAP). You can use `async` when the script is independent of any of other scripts on the page, for example: analytics.
