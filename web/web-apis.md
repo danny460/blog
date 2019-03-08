@@ -1,5 +1,4 @@
-# JavaScript
-## Web APIs
+# Web APIs
 ### Window
 #### Window.open()
 
