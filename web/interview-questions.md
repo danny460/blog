@@ -35,15 +35,26 @@ See:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 
 
+## Why is it needed to wrap IIFE with parentheses? Why doesn't `function(){}()` work?
+`function(){}()` doesn't work because it is parsed as a `FunctionDeclaration`. Beacuse `FunctionDeclaration` and `FunctionExpression` have the same syntax, except that the identifier (function name) is optional for a `FunctionExpression`. The only way for parser to decide which one the parse to is based on the context.
+
+Because parentheses (formely, the **grouping operator**), can only surround expression, there is no ambiguity for the function expression to work.
+
+And you don't care about the return value, you can actually write IIFE without parentheses:
+```js
+!function(){}(); // or with ~,+,-,typeof,delete,void 
+```
+Similar to parentheses, these operator can only be applied on expressions.
+
+See:
+- https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
+- https://stackoverflow.com/questions/1634268/explain-the-encapsulated-anonymous-function-syntax
+
 # Trick Questions
 
 ## What is a potential pitfall with using `typeof bar === 'object'` to determine if bar is an object?
 
-```js
-let bar = null;
-console.log(typeof bar === 'object');
-```
-Thus to check if bar is an object using with this piece of code, one must first check for `null` value:
+The main pitfull here is that when `bar` is `null`, the expression still evaluates to `true`. Thus to check if bar is an object using with this piece of code, one must first check for `null` value:
 ```js
 bar !== null && typeof bar === 'object'
 ```
