@@ -37,10 +37,7 @@ See:
 
 # Trick Questions
 
-## What is a potential pitfall with using `typeof bar === 'object'` to determine if bar 
-is an object?
-
-In javascript, the following code will log `true`:
+## What is a potential pitfall with using `typeof bar === 'object'` to determine if bar is an object?
 
 ```js
 let bar = null;
@@ -78,9 +75,9 @@ console.log(typeof b === 'undefined'); // false
 ```
 Variable b is defined outside of the function scope. How did this happen?
 
-This is because in fact, the expression `var a = b = 0` is shorthand for:
+Turns out, the expression `var a = b = 0` is shorthand for:
 ```js
-b = 0; // same for let and const
-var a = b; 
+b = 0; 
+var a = b;
 ```
-Here `b` ends up being a global variable.
+Here `b` ends up being a global variable. This is the behaviour even for `let` and `const`
