@@ -1,5 +1,5 @@
 <style>
-.table-of-contents > ul {
+nav.no-bullet > ul {
   list-style-type: none;
 }
 </style>
@@ -9,7 +9,7 @@
 The position CSS property sets how an element is positioned in a document. The `top`, `right`, `bottom`, and `left` properties determine the final location of positioned elements.
 
 ### values
-<nav class="table-of-contents">
+<nav class="no-bullet">
 
 **`static`**
 - The element is positioned according to the normal flow of document, the `top`, `right`, `bottom`, and `left` properties have no effect. This is the default value. 
