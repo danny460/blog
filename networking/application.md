@@ -6,6 +6,36 @@ nav.no-bullet > ul {
 
 # HTTP
 
+## URI
+HTTP relies on the Uniform Resource Identifier (URI) standard for requesting target resource. A URI can be classified as a locator(URL), a name(URN), or both. 
+
+In addition to identify the resource, URL also specify the location of the resource by specifying the access mechanism (e.g. network location)
+
+Example
+- URL: *http://www.ietf.org/rfc/rfc2396.txt*
+- URN: *urn:oasis:names:specification:docbook:dtd:xml:4.1.2*
+
+![URI, URL and URN](img/uri-url-urn.png)
+
+See:
+- [RFC-3986 URI](https://tools.ietf.org/html/rfc3986)
+
+## Messaging
+### Client request
+![Sample Request](img/http-request.png)
+Status line format
+```
+request-method resource-URI http-versions
+```
+
+header format
+```
+header-name: val1, val2, ...
+```
+### Server response
+![Sample Response](img/http-response.png)
+
+
 ## HTTP Method
 |         |     |
 | ------- | --- |
@@ -45,6 +75,20 @@ In cryptography, X.509 is the standard defining the format of **public key certi
 X.509 defines a certificate path validation alogrithm, which allows a certificate to be signed by intermediate CA certificates, which are, in turn, signed by other certificate, eventually reaching a **trust anchor**. 
 
 The alogrithm can verify a given certificate path from the subject certificate leading up to a trusted root certificate.
+
+# HTTP/2
+- byte framing
+  - stream
+  - message
+  - frame
+- multiplexed request/response
+  - one connection
+- server push
+  - PUSH_PROMISE
+- header compression
+- flow control
+  - SETTING
+
 
 # REST
 REST stands for Representational State Transfer. It is an architectural style which defines a set of constraints for web services. Alternatives are RPC and SOAP.
