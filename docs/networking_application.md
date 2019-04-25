@@ -1,3 +1,9 @@
+---
+id: networking_application
+title: Application Layer
+sidebar_label: Application Layer
+---
+
 <style>
 nav.no-bullet > ul {
   list-style-type: none;

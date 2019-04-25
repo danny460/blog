@@ -1,8 +1,21 @@
 {
   "docs": {
-    "Docusaurus": ["doc1"],
-    "First Category": ["doc2"],
-    "Second Category": ["doc3"]
+    "TOC": ["toc"],
+    "Frontend": [
+        "frontend_html",
+        "frontend_css",
+        "frontend_javascript",
+        "frontend_web-apis",
+        "frontend_interview-questions"
+    ],
+    "Java": [
+        "java_basics",
+        "java_concurrency"
+    ],
+    "Networking": [
+        "networking_application",
+        "networking_transport"
+    ]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]

@@ -1,3 +1,9 @@
+---
+id: java_basics
+title: Java Basics
+sidebar_label: Basics
+---
+
 # Data Types
 ## Primitive types
 

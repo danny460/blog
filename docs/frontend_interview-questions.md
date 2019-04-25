@@ -1,5 +1,11 @@
-# HTML
+---
+id: frontend_interview-questions
+title: Interview questions
+sidebar_label: Interview questions
+---
 
+
+# HTML
 ## What is the difference between `<script>`, `<script async>` and `<script defer>`? When to use what?
 
 Before the browser can render a page, it has to build the DOM tree by parsing the HTML markup. Whenever the parser encounters a script it has to fetch and execute it before it can continue parsing the HTML. `async` and `defer` provide different behaviours:

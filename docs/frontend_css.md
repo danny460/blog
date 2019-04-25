@@ -1,3 +1,9 @@
+---
+id: frontend_css
+title: CSS
+sidebar_label: CSS
+---
+
 <style>
 nav.no-bullet > ul {
   list-style-type: none;

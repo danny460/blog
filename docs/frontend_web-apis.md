@@ -1,4 +1,9 @@
-# Web APIs
+---
+id: frontend_web-apis
+title: Web APIs
+sidebar_label: Web APIs
+---
+
 ### Window
 #### Window.open()
 
