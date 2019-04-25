@@ -21,14 +21,14 @@ Example
 - URL: *http://www.ietf.org/rfc/rfc2396.txt*
 - URN: *urn:oasis:names:specification:docbook:dtd:xml:4.1.2*
 
-![URI, URL and URN](img/uri-url-urn.png)
+![URI, URL and URN](/img/docs/uri-url-urn.png)
 
 See:
 - [RFC-3986 URI](https://tools.ietf.org/html/rfc3986)
 
 ## Messaging
 ### Client request
-![Sample Request](img/http-request.png)
+![Sample Request](/img/docs/http-request.png)
 Status line format
 ```
 request-method resource-URI http-versions
@@ -39,7 +39,7 @@ header format
 header-name: val1, val2, ...
 ```
 ### Server response
-![Sample Response](img/http-response.png)
+![Sample Response](/img/docs/http-response.png)
 
 
 ## HTTP Method
