@@ -4,15 +4,11 @@ window.addEventListener('load', function(){
   
   if(article && onPageNav.hasChildNodes()) {
     var headings = article.querySelectorAll('h2, h3');
-    var tocLinks = onPageNav.getElementsByTagName('a');
+    var navLinks = onPageNav.getElementsByTagName('a');
 
     var mappingArr = Array.prototype.map.call(headings, function(heading, index) {
       var anchor = heading.getElementsByClassName('anchor')[0];
-      return { anchor: anchor, navLink: tocLinks[index] };
-    });
-
-    var navLinks = mappingArr.map(function(m){
-      return m.navLink;
+      return { anchor: anchor, navLink: navLinks[index] };
     });
 
     window.addEventListener('scroll', function() {
