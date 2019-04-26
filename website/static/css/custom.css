@@ -18,3 +18,11 @@
 nav.no-bullet > ul {
     list-style-type: none;
 }
+
+.onPageNav a {
+    transition: color .2s
+}
+
+.onPageNav a:hover, .onPageNav a.active {
+    color: #FBBC05
+}

@@ -59,6 +59,13 @@ const siteConfig = {
   },
 
   // Add custom scripts here that would be placed in <script> tags.
+  scripts: [
+    'https://buttons.github.io/buttons.js',
+    {
+      src: '/js/waypoint.js',
+      async: false,
+    },
+  ],
   stylesheets: [
     {
       href: '/css/custom.css',
