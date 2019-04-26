@@ -12,6 +12,7 @@ const users = [
 const siteConfig = {
   title: 'CS Notes', // Title for your website.
   tagline: 'A website for my learning notes',
+  repoUrl: 'https://github.com/danny460/cs-notes',
   url: 'https://your-docusaurus-test-site.com', // Your website URL
   baseUrl: '/', 
   projectName: 'cs-notes',
@@ -20,7 +21,7 @@ const siteConfig = {
     {doc: 'toc', label: 'Notes'},
     {blog: true, label: 'Blog'},
   ],
-  editUrl: 'https://github.com/danny460/interview-handbook/edit/master/docs/',
+  editUrl: 'https://github.com/danny460/cs-notes/edit/master/docs/',
   
   // If you have users set above, you add it here:
   users,
