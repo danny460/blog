@@ -59,7 +59,12 @@ const siteConfig = {
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  stylesheets: [
+    {
+      href: '/css/custom.css',
+      type: 'text/css',
+    }
+  ],
 
   onPageNav: 'separate',
   cleanUrl: true,

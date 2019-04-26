@@ -4,8 +4,8 @@ title: Java Basics
 sidebar_label: Basics
 ---
 
-# Data Types
-## Primitive types
+## Data Types
+### Primitive types
 
 There are 8 primitive types in java. Out of them, 4 are integer types and 2 are floating-point types.
 
@@ -20,7 +20,7 @@ There are 8 primitive types in java. Out of them, 4 are integer types and 2 are 
 
 **Note**: The size of boolean is VM dependent.
 
-### Unicode encoding and `char` data type
+#### Unicode encoding and `char` data type
 Java adopts the UTF-16 Unicode encoding sheme. UTF-16 encodes characters in code points. A **code point** is a code value associated with an character in an encoding scheme. In Unicode standard, code points are written in hexadecimal with the prefix *U+*. like *U+0041* represents latin character *"A"*.
 
 UTF-16 is a variable length encoding scheme. A code point can be represnted by either one or two code unit. A **code unit** is the building block in UTF-16. Each code uint is a 16-bit value. 
@@ -31,5 +31,5 @@ Each of the code unit in a surrogate pair falls into a range of 2048 unused valu
 
 In Java, the `char` type holds exact one code unit (16 bits = 2 bytes). So characters in the supplementary plane would require 2 `char`.
 
-## String
-### Strings are immutable
+### String
+#### Strings are immutable

@@ -1,6 +1,5 @@
 {
   "docs": {
-    "TOC": ["toc"],
     "Frontend": [
         "frontend_html",
         "frontend_css",

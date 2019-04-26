@@ -14,3 +14,7 @@
 
 @media only screen and (min-width: 1500px) {
 }
+
+nav.no-bullet > ul {
+    list-style-type: none;
+}

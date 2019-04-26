@@ -4,15 +4,10 @@ title: Transport Layer
 sidebar_label: Transport Layer
 ---
 
-<style>
-nav.no-bullet > ul {
-  list-style-type: none;
-}
-</style>
-# TCP
+## TCP
 TCP provides the abstraction of a reliable network running over an unreliable channel. Application layer can use the abstraction for messaging without worrying about lower level detail like: retransmission of lost data, in-order delivery etc. TCP is optimized for accurate delivery.
 
-## 3-Way Handshake
+### 3-Way Handshake
 All TCP connections begin with a three-way handshake. Before the client or the server can exchange any application data, they must agree on starting packet sequence numbers, as well as a number of other connection specific variables, from both sides.
 <nav class="no-bullet">
 
@@ -29,10 +24,10 @@ Once handshake is complete, application data can begin to flow between client an
 
 </nav>
 
-## Flow Control
-## Congestion Control - slow-start
-## Congestion Avoidance
-## TCP Optimization
+### Flow Control
+### Congestion Control - slow-start
+### Congestion Avoidance
+### TCP Optimization
 <nav class="no-bullet">
 
 Reuse connection
