@@ -3,10 +3,10 @@ window.addEventListener('load', function(){
   var onPageNav = document.getElementsByClassName('onPageNav')[0];
   
   if(article && onPageNav.hasChildNodes()) {
-    var headings = article.querySelectorAll('h2, h3');
-    var navLinks = onPageNav.getElementsByTagName('a');
+    var headings = Array.from(article.querySelectorAll('h2, h3'));
+    var navLinks = Array.from(onPageNav.getElementsByTagName('a'));
 
-    var mappingArr = Array.prototype.map.call(headings, function(heading, index) {
+    var mappingArr = headings.map(function(heading, index) {
       var anchor = heading.getElementsByClassName('anchor')[0];
       return { anchor: anchor, navLink: navLinks[index] };
     });
