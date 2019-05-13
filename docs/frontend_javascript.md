@@ -1,4 +1,8 @@
-# JavaScript
+---
+id: frontend_javascript
+title: Javascript
+sidebar_label: Javascript
+---
 
 ## Core
 

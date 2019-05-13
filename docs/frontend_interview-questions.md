@@ -1,6 +1,12 @@
-# HTML
+---
+id: frontend_interview-questions
+title: Interview questions
+sidebar_label: Interview questions
+---
 
-## What is the difference between `<script>`, `<script async>` and `<script defer>`? When to use what?
+
+## HTML
+### What is the difference between `script`, `script async` and `script defer`? When to use what?
 
 Before the browser can render a page, it has to build the DOM tree by parsing the HTML markup. Whenever the parser encounters a script it has to fetch and execute it before it can continue parsing the HTML. `async` and `defer` provide different behaviours:
 
@@ -13,9 +19,9 @@ Before the browser can render a page, it has to build the DOM tree by parsing th
 See:
 - https://stackoverflow.com/questions/10808109/script-tag-async-defer
 
-# JavaScript
+## JavaScript
 
-## What is `Symbol` in javascript? And what would you use it for?
+### What is `Symbol` in javascript? And what would you use it for?
 Symbol value represents a unique identifier. Every symbol value returend from `Symbol()` is guranteed to be unique.
 ```js
 let id1 = Symbol('id');
@@ -27,15 +33,15 @@ console.log(id1 === id2) // false
 ``` 
 **Note**: the data type `symbol` is a **primitive data type**.
 
-### What to use it for?
-#### Hidden properties
-#### System symbol
+#### What to use it for?
+##### Hidden properties
+##### System symbol
 
 See:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 
 
-## Why is it needed to wrap IIFE with parentheses? Why doesn't `function(){}()` work?
+### Why is it needed to wrap IIFE with parentheses? Why doesn't `function(){}()` work?
 `function(){}()` doesn't work because it is parsed as a `FunctionDeclaration`. Beacuse `FunctionDeclaration` and `FunctionExpression` have the same syntax, except that the identifier (function name) is optional for a `FunctionExpression`. The only way for parser to decide which one the parse to is based on the context.
 
 Because parentheses (formely, the **grouping operator**), can only surround expression, there is no ambiguity for the function expression to work.
@@ -50,9 +56,9 @@ See:
 - https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function
 - https://stackoverflow.com/questions/1634268/explain-the-encapsulated-anonymous-function-syntax
 
-# Trick Questions
+## Trick Questions
 
-## What is a potential pitfall with using `typeof bar === 'object'` to determine if bar is an object?
+### What is a potential pitfall with using `typeof bar === 'object'` to determine if bar is an object?
 
 The main pitfull here is that when `bar` is `null`, the expression still evaluates to `true`. Thus to check if bar is an object using with this piece of code, one must first check for `null` value:
 ```js
@@ -74,7 +80,7 @@ Array.isArray(bar)
 toString.call(bar) === '[object Array]'
 ```
 
-## What is the scope of `a` and `b` when using `var a = b = 0` inside a function?
+### What is the scope of `a` and `b` when using `var a = b = 0` inside a function?
 There is a pitfall here, which could be overlooked by some. Consider this example with an IIFE.
 ```js
 (function(){

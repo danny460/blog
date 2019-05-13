@@ -1,14 +1,15 @@
-<style>
-nav.no-bullet > ul {
-  list-style-type: none;
-}
-</style>
-# CSS property
+---
+id: frontend_css
+title: CSS
+sidebar_label: CSS
+---
 
-## position
+## CSS property
+
+### position
 The position CSS property sets how an element is positioned in a document. The `top`, `right`, `bottom`, and `left` properties determine the final location of positioned elements.
 
-### values
+#### values
 <nav class="no-bullet">
 
 **`static`**
@@ -26,7 +27,7 @@ The position CSS property sets how an element is positioned in a document. The `
 **`sticky`**
 - The element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block.
 
-### type of positioning
+#### type of positioning
 positioned element is an element whose **computed position** value is either `relative`, `absolute`, `fixed` or `sticky`. (anything but `static`)
 
 </nav>

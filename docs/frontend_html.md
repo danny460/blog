@@ -1,4 +1,8 @@
-# HTML
+---
+id: frontend_html
+title: HTML
+sidebar_label: HTML
+---
 
 ## DOCTYPE
 `DOCTYPE` is the **document type declaration**. It is an instruction that associates a SGML or XML document (like a webpage) with a **document type definition (DTD)**. 

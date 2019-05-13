@@ -1,11 +1,16 @@
-# Web APIs
-### Window
-#### Window.open()
+---
+id: frontend_web-apis
+title: Web APIs
+sidebar_label: Web APIs
+---
+
+## Window
+### Window.open()
 
 ```
 window.open(url, windowName, [windowFeatures]);
 ```
-##### Param
+#### Param
 
 **url**: URL of the resource to be laoded in the browsing context. open blank page if empty.
 
@@ -17,12 +22,12 @@ If its value is empty string or `undefined`, browser will create a new window ev
 
 example: `"menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";`
 
-##### Returns
+#### Returns
 A `Window` reference to the newly created window, or `null` if window couldn't be opened.
 
 returned reference could be used access properties and methods of the new window as long as it complies with Same-origin policy.
 
-#### Window features
+### Window features
 
 > **Note**: If the `windowFeatures` parameter is used, the features that are not listed will be disabled or removed (except titlebar and close, which are by default yes).
 > All features can be set to yes or 1, or just be present without value to be on. Set them to no or 0, or in most cases just omit them, to turn feature off.
