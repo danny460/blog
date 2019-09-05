@@ -9,19 +9,21 @@ const users = [
   },
 ];
 
+const baseUrl = '/blog/';
+
 const siteConfig = {
-  title: 'CS Notes', // Title for your website.
+  title: 'Danny\'s', // Title for your website.
   tagline: 'A website for my learning notes',
-  repoUrl: 'https://github.com/danny460/cs-notes',
-  url: 'https://your-docusaurus-test-site.com', // Your website URL
-  baseUrl: '/', 
-  projectName: 'cs-notes',
+  repoUrl: 'https://github.com/danny460/blog',
+  url: 'https://danny460.github.io/blog/', // Your website URL
+  baseUrl, 
+  projectName: 'blog',
   organizationName: 'danny460',
   headerLinks: [
-    {doc: 'toc', label: 'Notes'},
-    {blog: true, label: 'Blog'},
+    { doc: 'toc', label: 'Notes'},
+    { blog: 'posts', label: 'Blog'},
   ],
-  editUrl: 'https://github.com/danny460/cs-notes/edit/master/docs/',
+  editUrl: 'https://github.com/danny460/blog/edit/master/docs/',
   
   // If you have users set above, you add it here:
   users,
@@ -52,7 +54,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Danny460`,
+  copyright: `Copyright © ${new Date().getFullYear()} Zhang Linghan Danny`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -63,13 +65,13 @@ const siteConfig = {
   scripts: [
     'https://buttons.github.io/buttons.js',
     {
-      src: '/js/waypoint.js',
+      src: `${baseUrl}js/waypoint.js`,
       async: false,
     },
   ],
   stylesheets: [
     {
-      href: '/css/custom.css',
+      href: `${baseUrl}css/custom.css`,
       type: 'text/css',
     }
   ],
