@@ -9,22 +9,23 @@
 - `TIMED_WAITING`: waiting for some thread to perform some action for a specific period
 - `TERMINATED`: either exists normally or due to error
 
-
-
 ### Java Threading Model
 
-
 ## `CAS`
-Compare-and-swap (CAS) is an atomic instruction used in multithreading to achieve syncrhonization. It performs a single atomic opertiona (in assembly level), to compare the value at memory location with an expected value, if and only if the current memory value is the same ase the expected value, it set the memory value to a new value. For example, in linux x86, it's a `CMPXCHG` operation. If the value doesn't match, the write will fail. 
+Compare-and-swap (CAS) is a single atomic operation (in assembly level), to compare the value at given memory location with an expected value, if and only if the current memory value is the same as the expected value, it set the memory value to a new value. For example, in linux x86, the operation can be performed by `CMPXCHG`. If the value doesn't match, the write will fail. 
 
-In java, the implementation of the `Atomic` types such as `AtomicInteger` relies on this mechanism and `volatile` varialbe. It uses a loop a keep trying to do `CAS` until it succeed, which is like a spin-lock.
+In java, the implementation of the `Atomic` types such as `AtomicInteger` relies on Compare-and-swap mechanism and `volatile` variable. It uses a loop a keep testing the update with `CAS` until it succeed. It is much like a spin-lock.
 
 CAS is an optimistic locking mechanism. Note in multi-processor system, the atomicity that `CMPXCHG` provides is not enough, we also need to lock the memory bus.
 
 ### ABA problem
-CAS need to check if the value has changed from the expected value, however if the value changed from `A` to `B` then back to `A`, then using CAS to check the value we would get the conclusion that the value has not changed. The solution to ABA problem is to use multi-version version control.
+CAS need to check if the value has changed from the expected value. 
 
-see `AtomicStampedReference`
+Consider a scenario where a value is updated by another thread from `A` to `B` then back to `A`. When we use CAS to test the value, we would get the conclusion that the value has not changed, which is incorrect. 
+
+One solution to ABA problem is to use tagged reference (similar idea to multi-version version control in InnoDB). Each time the value is modified, we increment the tag value.
+
+Java use this solution, see [`java.util.concurrent.atomic.AtomicStampedReference`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicStampedReference.html).
 
 ## `synchronized` keyword
 Ensure atomicity and visibility.Every java object can implicitly act as a lock for purpose of synchronization using `synchronized` keyword. These built in locks are called *intrinsic locks* or *monitor locks*. Using `synchronized` is the only way to acquire an intrinsic locks. Intrinsic locks act as mutexes (mutual exclusion locks), which means at most one thread may own the lock.
@@ -162,4 +163,41 @@ Difference betwen `synchronized`
 ## Task Execution
 ### Executor Framework
 
-## Thread pool
+## Why Thread pool
+- lower resource consumption. Reusing thread to lower the cost of creating and destroy threads.
+- faster response time, because we save the cost of creating thread.
+- centralized management of thread. As thread is a limited resource, creating threads without proper management can lower system stability.
+
+## Types of thread pool
+provided by executor framework, we have 4 types:
+- `FixedThreadPool`
+  - always fixed size
+- `SingleThreadExecutor`
+  - only 1 thread
+- `CachedThreadPool`
+  - dynamic size
+- `ScheduledThreadPollExecutor`
+  - for delayed execution, or periodic execution
+
+## ThreadPoolExecutor
+- core size
+- maximum size
+- keep alive time
+
+### Life cycle and state transitioning
+- `RUNNING`: accept new task and process queued tasks
+- `SHUTDOWN`: don't accept new tasks, but process queued tasks
+- `STOP`: don't accept or process any tasks, also interrupt in-progress tasks.
+- `TIDYING`: all tasks have terminated, workerCount is zero, the thread transitioning to state `TIDYING` and run the `terminated()` hook
+- `TERMINATED`: `terminated()` completed
+
+### Rejection Policy
+When does a rejection happen?
+1. 
+2. The work queue is full, and creating new thread also fails (resource saturated).
+
+`RejectedExecutorHandler` implementations
+- `AbortPolicy`: throws `RejectedExecutionException`
+- `DiscardPolicy`: silently discard rejected task, it's a no-op implementation
+- `DiscardOldestPolicy`: discards the oldest unhandled task, and retry the current rejected task
+- `CallerRunsPolicy`: execute the rejected task in caller thread

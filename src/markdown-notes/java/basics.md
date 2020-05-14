@@ -27,3 +27,27 @@ In Java, the `char` type holds exact one code unit (16 bits = 2 bytes). So chara
 
 ## String
 ### Strings are immutable
+
+## Error handling
+### Throwable
+- Exception
+- Error: application should not catch
+
+## JPA
+Java Persistence API, is a specification that describes management of relational data in Java.
+
+Hibernate is a JPA implementation, an object-relational mapping (ORM) solution.
+
+Spring Data JPA is an abstraction of the data access layer, it offers generic solution to data access layer implementation and also generate JPA queries for you.
+
+## JAXRS
+Java API for RESTful Web Services, a java api specification that  support creating RESTful web services.
+
+
+## Design Pattern
+- Singleton
+- Factory
+- Builder
+- Proxy
+- Facade
+- Observer

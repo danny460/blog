@@ -108,7 +108,7 @@ Note: this is simplified and not specific to particular OS.
 | Optimal                    | Not implementable, but useful as a benchmark   |
 | FIFO (First-In, First-Out) | Might throw out important pages                |
 | Second chance              | Big improvement over FIFO                      |
-| Clock                      | Realistic                                      |
+| Clock                      | Realistic implementation of FIFO/Second chance |
 | LRU (Least Recently Used)  | Excellent, but difficult to implement exactly  |
 | NRU (Not Recently Used)    | Very crude approximation of LRU                |
 | NFU (Not Frequently Used)  | Fairly crude approximation to LRU              |
