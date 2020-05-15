@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "cs-notes",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "an ever growing cs study notes",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "zhang.linghan62@gmail.com",
   "dependencies": {
     "gatsby": "^2.20.35",
     "gatsby-image": "^2.3.5",
@@ -39,9 +39,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/danny460/cs-notes"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/danny460/cs-notes/issues"
   }
 }
