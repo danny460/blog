@@ -1,3 +1,8 @@
+---
+title: Process and thread
+path: /process-and-thread
+---
+
 A process is just an instance of an executing program, including the current 
 values of the program counter, registers and variables. 
 

@@ -1,16 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-export default function Template({
+export default function BlogTemplate({
   data, // this prop will be injected by the GraphQL query below.
 }) {
+  console.log({ data });
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, html, parent } = markdownRemark
   return (
     <div className="blog-post-container">
       <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
+        <h2>{parent.modifiedTime}</h2>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -22,8 +22,24 @@ export default function Template({
 
 export const pageQuery = graphql`
   query($id: String!) {
-    markdownRemark(id: {eq: $id}) {
+    markdownRemark(
+      parent: {
+        id: {
+          eq: $id
+        }
+      }
+    ) {
       html
+      frontmatter {
+        id
+      }
+      parent {
+        ... on File {
+          id
+          name
+          modifiedTime
+        }
+      }
     }
   }
 `

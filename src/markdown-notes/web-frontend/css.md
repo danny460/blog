@@ -1,9 +1,3 @@
----
-id: frontend_css
-title: CSS
-sidebar_label: CSS
----
-
 ## CSS property
 
 ### position
