@@ -15,6 +15,7 @@ TCP header is the first 20 - 60 bytes of a TCP segment, it contains parameter an
 
 #### Header Structure
 The header fields are listed in order:
+
 | size    | field                  | usage                                                                                                                                                                                                                              |
 | ------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2 bytes | source port            | sender's port number                                                                                                                                                                                                               |
@@ -33,8 +34,8 @@ The header fields are listed in order:
 | flag     | usage                                                         |
 | -------- | ------------------------------------------------------------- |
 | NS       | TODO                                                          |
-| CWR      |                                                               |
-| ECE      |                                                               |
+| CWR      | TODO                                                          |
+| ECE      | TODO                                                          |
 | URG flag | indicates that that the urgent pointer field is significant   |
 | ACK flag | used to indicate acknowledgement                              |
 | RSH flag | used for TCP push. used primarily in streaming                |
