@@ -7,10 +7,6 @@ This is my ever growing study notes. It covers some topics of computer science /
 
 It's not really meant as a study guide for you to learn, ultimately these documents are just a representation of my own logical flow while learning these topics. Still, I hope you may find some of the resources useful. 
 
-<!-- ## Contribute
-If you have any questions or like to point out any mistakes, feel free to leave a issue on github. -->
-
-
 💜 Built with [Gatsby](https://github.com/gatsbyjs/gatsby)
 
 🖤 Deployed on [Github Pages](https://pages.github.com/) with github actions
