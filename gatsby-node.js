@@ -32,7 +32,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage,
   } = actions
 
-  const templateComponent = path.resolve(`src/templates/notes.js`)
+  const templateComponent = path.resolve(`src/pages/templates/notes.js`)
 
   const result = await graphql(`
     {
