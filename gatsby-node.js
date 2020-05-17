@@ -75,6 +75,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path,
       component: templateComponent,
       context: {
+        template: 'notes',
         id: node.parent.id,
       }, // additional data can be passed via context
     })
