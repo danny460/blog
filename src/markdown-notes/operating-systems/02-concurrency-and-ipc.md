@@ -1,10 +1,7 @@
-<style>
-    .u {
-        text-decoration: underline;
-    }
-</style>
-
-# Inter-process Communication
+---
+title: Inter-process Communication
+path: /operating-system/inter-process-communication
+---
 
 ## Race Condition and Critical Regions
 **Race condition** can happen when two or more processes write or read some shared data. To avoid race condition, we need to enforce **mutual exclusion** on access to shared data. 

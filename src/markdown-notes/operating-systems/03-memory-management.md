@@ -1,4 +1,7 @@
-# Memory Management
+---
+title: Memory Management
+path: /operating-system/memory-management
+---
 
 # Virtual Memory
 page, page fault, address translation, main memory, storage.

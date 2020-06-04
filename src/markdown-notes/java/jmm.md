@@ -1,3 +1,8 @@
+---
+title: Java Memory Model (JMM)
+path: /java/jmm
+---
+
 # Memory Model & Management
 
 ## Runtime data areas

@@ -4,7 +4,7 @@ Traditonally in operating systems, each process has its own addresss space and a
 ## POSIX threads (Pthreads)
 To make it possible to write portable threaded programs, IEEE has defined a
 standard for threads in IEEE standard 1003.1c. The threads package it defines is
-called `Pthreads`.
+called `Pthreads`. POSIX thread is an interface, a standard. Its implementation is availalble on many different operating systems.
 
 | Thread call          | Description                                          |
 | -------------------- | ---------------------------------------------------- |

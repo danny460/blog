@@ -1,6 +1,6 @@
 ---
 title: Process and thread
-path: /process-and-thread
+path: /operating-system/process-and-thread
 ---
 
 A process is just an instance of an executing program, including the current 
@@ -60,6 +60,14 @@ authors call these entries `process control blocks`).
 > In user mode, the process table is visible to normal users under `/proc` directory.
 
 ### Zombie process
-This is a concept for Unix-like systems. A process is a zombie process if it has completed execution (via `exit` system call) but still has an entry in the process table, in terminated states.
+This is a concept for Unix-like systems. A process is a zombie process if it has completed execution (via `exit` system call) but still has an entry in the process table, in terminated states. The cause is that the parent process doesn't ignore nor handle the `SIGCHLD` signal.
 
-`SIGCHLD`
+If the zombie process's parent exit, the zombie process will become orphan and adopt by the init process. Then it's entry can be cleared. However, in case of a long running parent process, zombie process entry can't be removed and will consume system resources.
+
+1. handle SIGCHLD properly
+2. fork twice and kill parent.
+
+## Scheduling
+FCFS
+SJF
+

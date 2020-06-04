@@ -1,4 +1,7 @@
-# JVM
+---
+title: Java Virtual Machine (JVM)
+path: /java/jvm
+---
 
 ## Class Loading
 

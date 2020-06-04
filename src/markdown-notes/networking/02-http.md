@@ -1,10 +1,7 @@
-<style>
-nav.no-bullet > ul {
-  list-style-type: none;
-}
-</style>
-
-# HTTP
+---
+title: HTTP
+path: /networking/http
+---
 
 ## URI
 HTTP relies on the Uniform Resource Identifier (URI) standard for requesting target resource. A URI can be classified as a locator(URL), a name(URN), or both. 
@@ -212,7 +209,7 @@ The implementation of flow control is leave to the client/server.
 ## Server push
 Server push allows server to send multiple response for a single request. This allows server to push additional resources to client without the client having to request explicitly.
 
-> **this mechanism opens up many opportunities
+> This mechanism opens up many opportunities, as it breaks free from the request-response model.
 
 ## Header compression
 

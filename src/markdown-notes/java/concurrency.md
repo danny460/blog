@@ -1,3 +1,8 @@
+---
+title: Multi-threading and Concurrency in Java
+path: /java/multithreading-concurrency
+---
+
 # Multithreading Concurrency
 
 ## Thread

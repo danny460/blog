@@ -1,4 +1,7 @@
-# K8s
+---
+title: Kubernetes (K8s)
+path: /k8s
+---
 
 ## Architecture
 - node (minions)

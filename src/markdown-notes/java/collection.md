@@ -1,4 +1,7 @@
-# Java Collection
+---
+title: Java Collection Framework
+path: /java/collection-framework
+---
 
 ## Strucutre
 
