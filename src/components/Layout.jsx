@@ -52,11 +52,11 @@ const Layout = ({ children }) => {
       padding-left: 300px;
     `,
     content: css`
-      padding: .5rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       margin: 0 auto;
       max-width: 960px;
-    `
-  }
+    `,
+  };
 
   return (
     <>
@@ -66,9 +66,7 @@ const Layout = ({ children }) => {
           <SideContentNavigation markdownNodes={nodes} />
         </div>
         <div className={styles.layoutContent}>
-          <main className={styles.content}>
-            {children}
-          </main>
+          <main className={styles.content}>{children}</main>
         </div>
       </div>
     </>
