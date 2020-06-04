@@ -7,6 +7,7 @@ module.exports = {
   pathPrefix: '/cs-notes',
   plugins: [
     `gatsby-plugin-linaria`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -22,7 +23,22 @@ module.exports = {
         path: `${__dirname}/src/markdown-notes`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-design-system',
+            options: {
+              // Class prefix for all elements of the design system specimens
+              // This prefix also needs to be set on wrapper components in your Gatsby project
+              // Default value is 'grds' - so if you want you can leave out this option entirely
+              classPrefix: 'grds',
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
