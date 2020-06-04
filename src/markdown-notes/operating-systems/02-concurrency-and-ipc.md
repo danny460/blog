@@ -4,15 +4,17 @@ path: /operating-system/inter-process-communication
 ---
 
 ## Race Condition and Critical Regions
-**Race condition** can happen when two or more processes write or read some shared data. To avoid race condition, we need to enforce **mutual exclusion** on access to shared data. 
+
+**Race condition** can happen when two or more processes write or read some shared data. To avoid race condition, we need to enforce **mutual exclusion** on access to shared data.
 
 The <span class="u">part of program</span> where the shared memory is accessed is called the **critical region**.
 
 ## Achieving Mutual Exclusion
+
 There are many apporches to achieve mutual exclu-
 sion, so that while one process is busy updating shared memory in its critical region, no other process will enter. There are different hardware and software approaches, some employee a technique called **busy waiting**, where you would continuously test for some condition to become true before entering critical region.
 
-### (1) **Disabling Interrupts** 
+### (1) **Disabling Interrupts**
 
 This is the simplest solution, to turn off interrupt on CPU will switching to other process in the middle of critical regions. But It is generally unattractive because the waiting time for user process can be arbitrary, and achieves low concurrency. Also it does not work for multiprocessor systems, because disabling interrupt for one CPU does not prevent others from running processes. However, it is convinient for the kernel to disable interrupts for some instructions.
 
@@ -51,6 +53,7 @@ the `TSL` (or **Test, and Set Lock**) instruction reads the content of memory wo
 `TSL` can be used to implement the lock variable, and with busy waiting we can achieve mutual exclusion. A lock that uses busy waiting is called a **spin lock**
 
 pseudo assembly code showing how it works:
+
 ```assembly
 enter_region:
     TSL REGISTER,LOCK   | copy value to register and set lock to 1
@@ -87,21 +90,25 @@ A monitor is a collection of procedures, variables and data structures that are 
 typically when a process calls a monitor procedure, the compiler will add the check to see if any other process is currently active within the monitor. If so, the calling process will be suspended until the other process left. Else the calling process is allowed to enter.
 
 Additionally we use **condition variables** and `wait`/`signal` operation, to suspend and wakeup processes. To aviod having 2 active processes when wake-up(signal), there are a few solutions:
+
 - Hansen: enforce the rule that whenever a process does a `signal`, it must exit immediately.
 - Hoare: if P does signal and wake-up Q, suspend P and let newly awaken Q run.
 - MESA: if P signal, P continue to run and only allow the waiting process to run when P exits. (additional condition check is required after the waiting process starts running, because condition could change).
 
 #### Application: Java
+
 In Java, we can use the `synchronized` keyword with `wait`/`notify` to construct the monitor.
 
 ### (6) Send/Recieve
+
 Message passing allows passing of more complex message, it uses 2 primitives `send` and `recieve`.
 
 ### (7) Barriers
-Barrier primitive is a way to synchronize multiple process in phases. Barrier ensures that no process can advance to the next phase util all processes complete the current phase. 
 
+Barrier primitive is a way to synchronize multiple process in phases. Barrier ensures that no process can advance to the next phase util all processes complete the current phase.
 
 ## Concurrency in POSIX Threads
+
 POSIX Threads (usually pthreads), is an execution model independent from language.
 
 pthread_mutex_init

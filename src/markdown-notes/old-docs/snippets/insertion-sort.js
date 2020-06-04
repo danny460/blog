@@ -1,25 +1,26 @@
 function insertionSortAsc(arr) {
-    for(let j = 1; j < arr.length; j++) {
-        let key = arr[j];
-        let i = j - 1;
-        while(key < arr[i]) {
-            arr[i + 1] = arr[i];
-            i--;
-        }
-        arr[i + 1] = key;
+  for (let j = 1; j < arr.length; j++) {
+    let key = arr[j];
+    let i = j - 1;
+    while (key < arr[i]) {
+      arr[i + 1] = arr[i];
+      i--;
     }
+    arr[i + 1] = key;
+  }
 }
 
 function insertionSortDesc(arr) {
-    for(let j = 1; j < arr.length; j++) {
-        let key = arr[j];
-        let i = j - 1;
-        while(key > arr[i]) { // only difference
-            arr[i + 1] = arr[i];
-            i--
-        }
-        arr[i + 1] = key;
+  for (let j = 1; j < arr.length; j++) {
+    let key = arr[j];
+    let i = j - 1;
+    while (key > arr[i]) {
+      // only difference
+      arr[i + 1] = arr[i];
+      i--;
     }
+    arr[i + 1] = key;
+  }
 }
 
 // test

@@ -5,11 +5,13 @@ sidebar_label: Web APIs
 ---
 
 ## Window
+
 ### Window.open()
 
 ```
 window.open(url, windowName, [windowFeatures]);
 ```
+
 #### Param
 
 **url**: URL of the resource to be laoded in the browsing context. open blank page if empty.
@@ -23,6 +25,7 @@ If its value is empty string or `undefined`, browser will create a new window ev
 example: `"menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";`
 
 #### Returns
+
 A `Window` reference to the newly created window, or `null` if window couldn't be opened.
 
 returned reference could be used access properties and methods of the new window as long as it complies with Same-origin policy.
@@ -35,6 +38,7 @@ returned reference could be used access properties and methods of the new window
 ![](https://developer.mozilla.org/@api/deki/files/210/=FirefoxChromeToolbarsDescription7a.gif)
 
 Position and size features:
+
 - left
 - top
 - height
@@ -46,14 +50,14 @@ Position and size features:
 - outerWidth
 - innerHeight
 - innerWidth
-Toolbar and chrome features:
+  Toolbar and chrome features:
 - menubar
 - toolbar
 - location
 - personalbar
 - directory
 - status
-Window functionality features:
+  Window functionality features:
 - attention
 - dependent
 - minimizable
@@ -61,7 +65,7 @@ Window functionality features:
 - noopener
 - resizable
 - scrollbars
-Features requiring privileges:
+  Features requiring privileges:
 
 The following features require the `UniversalBrowserWrite` privilege, otherwise they will be ignored. Chrome scripts have this privilege automatically, others have to request it from the `PrivilegeManager`.
 
@@ -73,5 +77,3 @@ The following features require the `UniversalBrowserWrite` privilege, otherwise 
 - alwaysLowered
 - z-lock: same as alwaysLowered
 - close
-
-

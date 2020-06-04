@@ -1,25 +1,27 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import 'gatsby-remark-design-system/theme/gatsby-remark-design-system-theme.scss';
 
-import Layout from "../components/layout"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+
+import Layout from '../components/layout';
 // import Image from "../components/image"
-import SEO from "../components/seo"
-import Sidebar from "../components/sidebar"
+import SEO from '../components/seo';
+import Sidebar from '../components/sidebar';
 
 const IndexPage = ({ data }) => {
   const { allSitePage } = data;
 
-  
-
   const pagePaths = allSitePage.nodes.map(({ path }) => path);
-
-  console.log(pagePaths);
 
   const docList = (
     <ul>
-      { pagePaths.map((pathname, i) => <li key={i}><Link to={pathname}>{pathname}</Link></li>) }
+      {pagePaths.map((pathname, i) => (
+        <li key={i}>
+          <Link to={pathname}>{pathname}</Link>
+        </li>
+      ))}
     </ul>
-  )
+  );
 
   return (
     <Layout>
@@ -32,22 +34,22 @@ const IndexPage = ({ data }) => {
         <Image />
       </div> */}
       {/* <Link to="/page-2/">Go to page 2</Link> */}
-      { docList }
+      {docList}
     </Layout>
   );
-}
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   {
     allSitePage(
-      sort: {fields: path}, 
-      filter: {context: {template: {eq: "notes"}}}
+      sort: { fields: path }
+      filter: { context: { template: { eq: "notes" } } }
     ) {
       nodes {
         path
       }
     }
   }
-`
+`;
