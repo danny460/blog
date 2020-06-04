@@ -39,13 +39,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         limit: 1000
       ) {
         nodes {
-          parent {
-            ... on File {
-              id
-              modifiedTime(fromNow: true)
-              name
-            }
-          }
           frontmatter {
             title
             path
@@ -67,15 +60,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     if (frontmatter) {
       const { path } = frontmatter;
       if (path) {
-        const { parent } = node;
-        const { id } = parent;
-
         createPage({
           path,
           component: templateComponent,
           context: {
-            template: 'notes',
-            id,
+            path,
           }, // additional data can be passed via context
         });
       }
