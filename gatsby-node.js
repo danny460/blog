@@ -11,73 +11,74 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const docsBasePath = path.resolve(__dirname, 'src');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   // adding attributes to MarkdownRemark node
-  if (node.internal.type === `MarkdownRemark`) {    
+  if (node.internal.type === `MarkdownRemark`) {
     // adding slug path
-    const filePath = createFilePath({ node, getNode, trailingSlash: false })
+    const filePath = createFilePath({ node, getNode, trailingSlash: false });
     let slug = `/docs${filePath}`;
     // console.log(slug);
     createNodeField({
       name: `slug`,
       node,
       value: slug,
-    })
+    });
   }
-}
+};
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { 
-    createPage,
-  } = actions
+  const { createPage } = actions;
 
-  const templateComponent = path.resolve(`src/templates/notes.js`)
+  const templateComponent = path.resolve(`src/templates/notes.js`);
 
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___title]}, limit: 1000) {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___title] }
+        limit: 1000
+      ) {
         nodes {
           parent {
-            id
             ... on File {
               id
-              relativeDirectory
               modifiedTime(fromNow: true)
               name
             }
           }
-          headings {
-            value
+          frontmatter {
+            title
+            path
           }
         }
       }
     }
-  `)
+  `);
 
   // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
   }
 
   result.data.allMarkdownRemark.nodes.forEach(node => {
-    const { parent } = node;
-    const { relativeDirectory, name } = parent;
-    
-    let path = `/docs/${name}`;
-    if(relativeDirectory) {
-      path = `/docs/${relativeDirectory}/${name}`;
+    const { frontmatter } = node;
+
+    if (frontmatter) {
+      const { path } = frontmatter;
+      if (path) {
+        const { parent } = node;
+        const { id } = parent;
+
+        createPage({
+          path,
+          component: templateComponent,
+          context: {
+            template: 'notes',
+            id,
+          }, // additional data can be passed via context
+        });
+      }
     }
-
-
-    createPage({
-      path,
-      component: templateComponent,
-      context: {
-        template: 'notes',
-        id: node.parent.id,
-      }, // additional data can be passed via context
-    })
-  })
-}
+  });
+};
