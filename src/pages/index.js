@@ -4,19 +4,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import SideContentNavigation from '../components/SideContentNavigation';
 import CustomPropTypes from '../CustomPropTypes';
-
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       nodes: CustomPropTypes.markdownNodeArray,
-    }) 
-  })
-}
+    }),
+  }),
+};
 
 export default function IndexPage({ data }) {
   const { allMarkdownRemark } = data;
@@ -31,10 +30,10 @@ export default function IndexPage({ data }) {
 }
 
 export const pageQuery = graphql`
- {
+  {
     allMarkdownRemark(
-      sort: {fields: frontmatter___path}, 
-      filter: {frontmatter: {path: {glob: "**"}}} # match any non-empty path
+      sort: { fields: frontmatter___path }
+      filter: { frontmatter: { path: { glob: "**" } } } # match any non-empty path
     ) {
       nodes {
         frontmatter {

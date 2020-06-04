@@ -3,7 +3,6 @@ import React from 'react';
 import NestedContentList from './NestedContentList';
 import CustomPropTypes from '../CustomPropTypes';
 
-
 class ContentNode {
   constructor(key) {
     this.key = key;
@@ -14,11 +13,11 @@ class ContentNode {
   }
 
   hasChildNode(key) {
-    return this.children.has(key)
+    return this.children.has(key);
   }
 
   getChildNode(key) {
-    return this.children.get(key)
+    return this.children.get(key);
   }
 
   addChildNode(key) {
@@ -29,8 +28,8 @@ class ContentNode {
 }
 
 /**
- * creating a tree of content node from the list of markdown nodes 
- * @param {Array} array of markdown nodes 
+ * creating a tree of content node from the list of markdown nodes
+ * @param {Array} array of markdown nodes
  */
 const buildContentTree = markdownNodes => {
   const root = new ContentNode(null);
@@ -39,24 +38,24 @@ const buildContentTree = markdownNodes => {
     const { frontmatter, parent } = markdownNode;
 
     const { name } = parent;
-    const { path, title } = frontmatter;  
+    const { path, title } = frontmatter;
     const keys = path.split('/');
-    
+
     let current = root;
-    while(keys.length) {
+    while (keys.length) {
       const key = keys.shift();
 
       // _index.md only provide information,
       // does not create new node in content tree
-      if(key == '_index' && !keys.length) {
+      if (key == '_index' && !keys.length) {
         const { topicName } = frontmatter;
-        if(topicName) {
+        if (topicName) {
           current.displayName = topicName;
         }
         break;
       }
 
-      if(current.hasChildNode(key)) {
+      if (current.hasChildNode(key)) {
         current = current.getChildNode(key);
       } else {
         current = current.addChildNode(key);
@@ -70,12 +69,12 @@ const buildContentTree = markdownNodes => {
   });
 
   return root;
-}
+};
 
 /**
  * generate display name from a key. assume key to be 'cs-notes', generated
  * name will be 'CS Notes'. Asume key is always '-' delimitted.
- * @param {string} key 
+ * @param {string} key
  * @returns {string}
  */
 const generateDisplayName = key => {
@@ -84,21 +83,22 @@ const generateDisplayName = key => {
 
   const words = key.split(DELIMITER);
   return words.map(capitalize).join(SPACER);
-}
+};
 
 /**
  * captialize give string
- * @param {string} str 
+ * @param {string} str
  * @returns {string}
  */
-const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const capitalize = str =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 SideContentNavigation.propTypes = {
   markdownNodes: CustomPropTypes.markdownNodeArray.isRequired,
-}
+};
 
 export default function SideContentNavigation({ markdownNodes }) {
-  const contentRoot = buildContentTree(markdownNodes)
+  const contentRoot = buildContentTree(markdownNodes);
 
-  return <NestedContentList contentNode={contentRoot} root/>;
+  return <NestedContentList contentNode={contentRoot} root />;
 }
