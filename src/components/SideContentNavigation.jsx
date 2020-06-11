@@ -58,7 +58,7 @@ const buildContentTree = markdownNodes => {
         current = current.getChildNode(key);
       } else {
         current = current.addChildNode(key);
-        current.displayName = generateDisplayName(key);
+        current.displayName = getDisplayNameFromSlug(key);
       }
     }
 
@@ -71,16 +71,16 @@ const buildContentTree = markdownNodes => {
 };
 
 /**
- * generate display name from a key. assume key to be 'cs-notes', generated
- * name will be 'CS Notes'. Asume key is always '-' delimitted.
- * @param {string} key
- * @returns {string}
+ * generate display name from slug. assume key to be 'cs-notes', generated
+ * name will be 'CS Notes'
+ * @param {string} slug the slug string
+ * @returns {string} display name
  */
-const generateDisplayName = key => {
+const getDisplayNameFromSlug = slug => {
   const DELIMITER = '-';
   const SPACER = ' ';
 
-  const words = key.split(DELIMITER);
+  const words = slug.split(DELIMITER);
   return words.map(capitalize).join(SPACER);
 };
 
