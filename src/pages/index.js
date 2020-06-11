@@ -22,7 +22,7 @@ export default function IndexPage({ data }) {
   const { nodes } = allMarkdownRemark;
 
   return (
-    <Layout>
+    <Layout sideNav={false}>
       <SEO title="cs study notes" />
       <SideContentNavigation markdownNodes={nodes} />
     </Layout>

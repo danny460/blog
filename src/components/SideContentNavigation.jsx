@@ -1,7 +1,6 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import NestedContentList from './NestedContentList';
-import CustomPropTypes from '../CustomPropTypes';
+import { useStaticQuery, graphql } from 'gatsby';
 
 class ContentNode {
   constructor(key) {
@@ -93,12 +92,31 @@ const generateDisplayName = key => {
 const capitalize = str =>
   str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-SideContentNavigation.propTypes = {
-  markdownNodes: CustomPropTypes.markdownNodeArray.isRequired,
-};
+export default function SideContentNavigation() {
+  const { allMarkdownRemark } = useStaticQuery(graphql`
+    query MarkdownNotesQuery {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___path }
+        filter: { frontmatter: { path: { glob: "**" } } } # match any non-empty path
+      ) {
+        nodes {
+          frontmatter {
+            title
+            path
+          }
+          parent {
+            ... on File {
+              name
+            }
+          }
+        }
+      }
+    }
+  `);
 
-export default function SideContentNavigation({ markdownNodes }) {
-  const contentRoot = buildContentTree(markdownNodes);
+  const { nodes } = allMarkdownRemark;
+
+  const contentRoot = buildContentTree(nodes);
 
   return <NestedContentList contentNode={contentRoot} root />;
 }

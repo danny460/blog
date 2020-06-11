@@ -10,7 +10,7 @@ NestedContentList.propTypes = {
 };
 
 NestedContentList.defaultProps = {
-  depth: NaN,
+  depth: Infinity,
   root: false,
 };
 
@@ -25,7 +25,7 @@ export default function NestedContentList({ contentNode, depth, root }) {
   }
 
   let nestedList = null;
-  if (depth != 0) {
+  if (depth !== 0) {
     const { children } = contentNode;
     const listItems = Array.from(children.keys()).map(key => {
       const node = children.get(key);
