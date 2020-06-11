@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import SideContentNavigation from '../components/SideContentNavigation';
+import getRelativeTime from '../utils/getRelativeTime';
 
 BlogTemplate.propTypes = {
   data: PropTypes.shape({
@@ -32,7 +32,7 @@ export default function BlogTemplate({
       <div className="blog-post-container">
         <div className="blog-post">
           <h1>{title}</h1>
-          <p>{modifiedTime}</p>
+          <p>{getRelativeTime(new Date(modifiedTime).getTime())}</p>
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
