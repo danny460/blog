@@ -7,7 +7,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import SideContentNavigation from '../components/SideContentNavigation';
-import CustomPropTypes from '../CustomPropTypes';
+import CustomPropTypes from '../utils/CustomPropTypes';
 
 IndexPage.propTypes = {
   data: PropTypes.shape({

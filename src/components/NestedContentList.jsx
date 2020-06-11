@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import CustomPropTypes from '../CustomPropTypes';
+import CustomPropTypes from '../utils/CustomPropTypes';
 
 NestedContentList.propTypes = {
   contentNode: CustomPropTypes.contentNode.isRequired,
