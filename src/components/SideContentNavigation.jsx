@@ -1,6 +1,7 @@
 import React from 'react';
 import NestedContentList from './NestedContentList';
 import { useStaticQuery, graphql } from 'gatsby';
+import { css } from 'linaria';
 
 class ContentNode {
   constructor(key) {
@@ -92,6 +93,16 @@ const getDisplayNameFromSlug = slug => {
 const capitalize = str =>
   str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
+const styles = {
+  sidebar: css`
+    border-right: solid 1px lightgray;
+    width: 350px;
+    height: 100%;
+    min-height: 100%;
+    padding: 1rem;
+  `,
+};
+
 export default function SideContentNavigation() {
   const { allMarkdownRemark } = useStaticQuery(graphql`
     query MarkdownNotesQuery {
@@ -118,5 +129,9 @@ export default function SideContentNavigation() {
 
   const contentRoot = buildContentTree(nodes);
 
-  return <NestedContentList contentNode={contentRoot} root />;
+  return (
+    <nav className={styles.sidebar} role="navigation">
+      <NestedContentList contentNode={contentRoot} root />
+    </nav>
+  );
 }

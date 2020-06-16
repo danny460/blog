@@ -9,8 +9,8 @@ const StyledHeader = styled.header`
   height: 60px;
   width: 100%;
   background-color: rebeccapurple;
-  position: fixed;
 `;
+
 const HeaderContentContainer = styled.div`
   margin: 0;
   max-width: 960px;

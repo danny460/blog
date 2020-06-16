@@ -19,38 +19,45 @@ const Layout = ({ children, sideNav }) => {
   `);
 
   const styles = {
-    mainSection: css`
-      padding-top: 60px;
-    `,
-    layoutNav: css`
-      position: fixed;
-      width: 300px;
+    gridLayout: css`
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        'header header'
+        'sidebar main';
+      min-height: 100%;
       height: 100%;
     `,
-    layoutContent: css`
-      padding-left: 300px;
+    headerGrid: css`
+      grid-area: header;
+    `,
+    sidebarGrid: css`
+      grid-area: sidebar;
+    `,
+    mainGrid: css`
+      grid-area: main;
+      overflow-y: scroll;
     `,
     content: css`
-      padding: 0.5rem 1.5rem;
+      padding: 1.5rem 1.5rem;
       margin: 0 auto;
       max-width: 960px;
     `,
   };
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div className={styles.mainSection}>
-        {sideNav && (
-          <div className={styles.layoutNav}>
-            <SideContentNavigation />
-          </div>
-        )}
-        <div className={styles.layoutContent}>
-          <main className={styles.content}>{children}</main>
-        </div>
+    <div className={styles.gridLayout}>
+      <div className={styles.headerGrid}>
+        <Header siteTitle={data.site.siteMetadata.title} />
       </div>
-    </>
+      <div className={styles.sidebarGrid}>
+        <SideContentNavigation />
+      </div>
+      <div className={styles.mainGrid}>
+        <main className={styles.content}>{children}</main>
+      </div>
+    </div>
   );
 };
 
