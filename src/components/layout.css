@@ -11,6 +11,7 @@ body {
 html, body, #___gatsby, #gatsby-focus-wrapper {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 article,
 aside,
@@ -189,7 +190,7 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
+  font: 100%/1.5 georgia, serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -238,7 +239,7 @@ h1 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
+  font-size: 2rem;
   line-height: 1.1;
 }
 h2 {
@@ -255,7 +256,7 @@ h2 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
+  font-size: 1.51572rem;
   line-height: 1.1;
 }
 h3 {
@@ -272,7 +273,7 @@ h3 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
+  font-size: 1.31951rem;
   line-height: 1.1;
 }
 h4 {
