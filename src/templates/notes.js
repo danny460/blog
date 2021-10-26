@@ -43,18 +43,18 @@ export default function BlogTemplate({
   );
 }
 
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        title
-      }
-      parent {
-        ... on File {
-          modifiedTime
-        }
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query($path: String!) {
+//     markdownRemark(frontmatter: { path: { eq: $path } }) {
+//       html
+//       frontmatter {
+//         title
+//       }
+//       parent {
+//         ... on File {
+//           modifiedTime
+//         }
+//       }
+//     }
+//   }
+// `;

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `CS Study Notes`,
-    description: `This is my ever growing study notes. It covers many areas of computer science / software engineering, things I have learnt and am learning. I find it very useful to write things down so that I have a place to refer back to when needed. So here it is. It's not really meant as a blog for you to learn, ultimately these documents are just a representation of my logical flow. Still, I hope you may find some of them is useful. If you have any questions or like to point out any mistakes, feel free to leave a issue on github.`,
+    title: `Blog, also notes`,
+    description: ``,
     author: `@ZhangLinghan`,
   },
   pathPrefix: '/cs-notes',
@@ -20,7 +20,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-notes`,
-        path: `${__dirname}/src/markdown-notes`,
+        path: `${__dirname}/src/posts`,
       },
     },
     {

@@ -1,3 +1,8 @@
+---
+title: Thread
+path: /operating-system-thread
+---
+
 # Threads
 
 Traditonally in operating systems, each process has its own addresss space and a single thread of control. However, in some situations, it is desirable to have multiple threads of control in the same address space. Introducing...Threads.

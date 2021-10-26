@@ -4,40 +4,37 @@ import { css } from 'linaria';
 import { styled } from 'linaria/react';
 
 import { Link } from 'gatsby';
+import ThemeToggle from './ThemeToggle';
 
-const StyledHeader = styled.header`
-  height: 60px;
-  width: 100%;
-  background-color: rebeccapurple;
+const FlexHeader = styled.header`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:2.625rem;
 `;
 
-const HeaderContentContainer = styled.div`
-  margin: 0;
-  max-width: 960px;
-  padding: 20px 1rem;
-`;
-
-const Heading = styled.h5`
-  margin: 0;
-`;
+const Title = styled.h1`
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  margin-top: 0;
+`
 
 const styles = {
   headerLink: css`
-    color: white;
     text-decoration: none;
+    color:var(--textTitle)
   `,
 };
 
 const Header = ({ siteTitle }) => (
-  <StyledHeader>
-    <HeaderContentContainer>
-      <Heading>
-        <Link className={styles.headerLink} to="/">
-          {siteTitle}
-        </Link>
-      </Heading>
-    </HeaderContentContainer>
-  </StyledHeader>
+  <FlexHeader>
+    <Title>
+      <Link className={styles.headerLink} to="/">
+        {siteTitle}
+      </Link>
+    </Title>
+    <ThemeToggle />
+  </FlexHeader>
 );
 
 Header.propTypes = {

@@ -1,6 +1,6 @@
 ---
-title: Process and thread
-path: /operating-system/process-and-thread
+title: Process
+path: /operating-system-process
 ---
 
 A process is just an instance of an executing program, including the current

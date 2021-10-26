@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "zhang.linghan62@gmail.com",
   "dependencies": {
+    "@fontsource/montserrat": "^4.5.1",
     "eslint": "^7.0.0",
     "eslint-plugin-react": "^7.20.0",
     "gatsby": "^2.20.35",
@@ -15,6 +16,7 @@
     "gatsby-plugin-react-helmet": "^3.2.5",
     "gatsby-plugin-sass": "^5.0.0",
     "gatsby-plugin-sharp": "^2.5.7",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-design-system": "^2.0.1",
     "gatsby-remark-prismjs": "^3.5.4",
     "gatsby-source-filesystem": "^2.2.5",
@@ -27,7 +29,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-toggle": "^4.1.2"
   },
   "keywords": [
     "gatsby"
