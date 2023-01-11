@@ -18,7 +18,7 @@
     "gatsby-remark-design-system": "^2.0.1",
     "gatsby-remark-prismjs": "^3.5.4",
     "gatsby-source-filesystem": "^2.2.5",
-    "gatsby-transformer-remark": "^2.7.5",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.4.7",
     "linaria": "^2.0.0-alpha.1",
     "node-sass": "6.0.1",
